@@ -1,0 +1,207 @@
+.sp {
+  padding: 100px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.sp__picked {
+  margin: 20px 10px 10px 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.sp__pick__list--header {
+  font-weight: bold;
+  margin: 5px;
+  text-align: center;
+}
+.sp__pick {
+  display: inline-flex;
+  border-radius: 4px;
+  border: 2px solid grey;
+  margin: 10px;
+  width: 300px;
+  line-height: 30px;
+  text-align: left;
+
+  cursor: pointer;
+  background-color: white;
+  position: relative;
+}
+.sp__pick__default {
+  color: grey;
+  font-weight: 900;
+  padding: 5px 10px;
+}
+.sp__pick__list--content {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid silver;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+.sp__pick__list--content:last-child {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.sp__pick__list {
+  border-radius: 4px;
+  position: absolute;
+  z-index: 100;
+  border: 2px solid grey;
+  background-color: white;
+  display: flex;
+  padding: 5px;
+  top: -50px;
+}
+.sp__pick__list--list {
+  flex: 1;
+  width: 130px;
+}
+.sp__pick__list--lists {
+  display: flex;
+  flex-direction: row;
+}
+.sp__pick__item {
+  padding: 0 5px;
+  line-height: 25px;
+  font-size: 15px;
+  color: #242424;
+  font-style: italic;
+}
+.sp__pick__item:hover {
+  background-color: #eee;
+  border-radius: 3px;
+}
+.sp__box {
+  display: inline-flex;
+  flex-direction: column;
+
+  border-radius: 4px;
+  background-color: #ededed;
+  border: 5px solid grey;
+}
+.sp__row {
+  display: flex;
+}
+.sp__cell {
+  flex: 2;
+  text-align: left;
+}
+.sp__cell:nth-child(1) {
+  flex: 1;
+}
+.sp__cell:nth-child(2) {
+  flex: 2;
+}
+.sp__key {
+  font-weight: bold;
+  width: 100px;
+  color: #4f4f4f;
+}
+.sp__value {
+  width: 150px;
+}
+.sp__key,
+.sp__value {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.sp__row .sp__cell .sp__cell {
+  padding: 10px;
+  box-sizing: border-box;
+  line-height: 30px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.sp__input {
+  height: 40px;
+  padding: 5px 10px;
+  border: 1px solid silver;
+  font-size: 15px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  background-position: right 5px center;
+  background-repeat: no-repeat;
+}
+.sp__button {
+  border-radius: 4px;
+  background-color: #4364ed;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 12px;
+}
+.sp__selected {
+  background-color: #8542ff;
+}
+.sp__word {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.sp__speech {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAFAAAAAAEDbqWAAABCklEQVQ4EdVVuw3CMBA1n46CDokF6BCiYAUYhEFgACYApgAKSmaAHeiRqJAQvKf4iHU5oyQkBSe9+PLe3TmOnYtz5W2I1GP59HhmH9IWeAKveFhxpYOUBXAHWFgA17SuyRpkE9wcuAJSNBx1ygDEHrgALS3q+xmIMxAW1L7k8IlXwMPH3zCOADOZPE0Xs+6TSOd2Pp57swF6InxLsjTNSZ0JnBMwFoJjA2CCNvI0S0uU9CqxKRN43MBarV1x9cyK/24Fmf2ofQVVTmAeU+6xPtfhRlma5uScsD1Q44e2Bj4fGvyoTaH83Cqi1b3A11i02R2Qk6vZhZOzXS+Bytt1OAn92n44eqJcv8w3r5dtqe1WHxEAAAAASUVORK5CYII=');
+  width: 24px;
+  height: 20px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.sp__input--invalid {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAFqADAAQAAAABAAAAFgAAAAA/6RFgAAADB0lEQVQ4EY1V3U4TQRTe2a3bbWlXqP2BWggYYlDDrTFKYgtRMeoTeGG880F8EKOvIAEv+GmIxsAdRA2GWJDa9M8GCt3uluJ6vqazmW4XdG7mnPOd882cOWdmJKk7DnR9Mqfrb3Lj4xq3/e9cGBoay4XDq7nBwXEewyCAtG3ba7YkXZUYW76k689G8/kmd7pozkciqdN2O2vb9jXG2L4ky+mJw8M91kPaZaDVVv3h8NNkoWBcRPozGk22W62sZNuT3I+TM6RAO01zgM9Eng0Eg0+GS6UGt4nzXjQ68qfVWiPS66IdsszYO1nx+59T+t/dIC123zCMpXIsFnJjuVhs2LasFS9SbEgNhV7JY9VqQVbVNKWw4yYgfaZhWR8q0WiYY8VEIi6Z5jItPMVtwryOLHGEneIBwC4oYIUCbgiOHZEW/XxZUeYtv181Gw0c3S23D+kfQ5o2H69UToA5xFBK8XjCaDZBfhN6z2Bsg1IPkG26x04KLfwppKrzsWr1mGM9xDAi1aZhgNxrVzzOmZGN7vM9ulKr1R0jCbKoQKYuKGsDAxkSt91Yn05ZeJHCr48YxpFisaKFw7MkbkH3HIxtDirKQ/dOua8nMUCt2TylwzO5Y99s2xqK2WfvGjyJ0V5HZ2dLVKzb5wWSfRod0mk/D6e+4uFCoHfp7t/18O8zEcFXSdPmJiqVogj27JhWHzgxzcVzSLfoaDbFYMid1jTNVVxxEXOIC8lkkNpsgcAZ0aErb1Mx56hYD4h8w40T+RTeDTxKHOscxUEqFWgfHS2QA9qsZ5DDF7QfOgXA70hEr7fbOKo7PY5QGNtVfb5MqlbLMzzsdq32ngo153bE+dHdz6C3RQzFPWm1lryOjC7MD7+iZBh+DXJ4IQZCJtJvwUAgkyiXS24MOsiPLWuRxHtunGLXZJ8kvSbhlwjSqjtU6dnzSOGLdwGPDonrrth9SVFeyqP1+q6PsbRDTm8zU9WMu33EYC7jJQsGg48pNgsbbcj5mrhP59/DbyJW1gH/IaCj9nT9rfiZ/gVymy3oTwDulgAAAABJRU5ErkJggg==');
+}
+
+.sp__input--valid {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAWCAYAAADafVyIAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAFgAAAAB+zen2AAAChElEQVRIDbVTTWgTQRSet0nWVqgVrXZrg9ZD8ZCDIj1oxY1UYTVK1UMvBS9CoVIvWvXiD0HUQ4jiSRCKRMWLORSkYCJKTAhFexEEPQl6SKGbiphCo90k+3yzsu3uJDUY0j3MzPvem+97PzsetkZfGA955QGjG9aCP5Tt6quUKxMIMOttpsDQp4BcmP8eJvIryJgHED82rYITaX+vgcZzSngPTxoAHu1Xz400RUDLdJ5kiE8Q2QarI8AeJFX9PImgZAENLmEMS0R+GxEnbXIivf8qmB/j5Jy24QqGpv2tC6VSnMiP2/lJAM9eqnNnbHKON1TBYHZXW6FkJJzk1PR0W0fHWSc5F/jvCk6/7968+KucYAz7OAH/iCQnSdJeyn7+L7KyWgJH00oIgR1eJ5uRF/vy+orbfTqWUbaYJqaQYcD2UMYGZX8wqc7N2JhzBy3dOUylPibQS8FFCo5ubcfI0936ojPw1IeejcVCMUWY9RvaPgB2KRnM37VtcZcomwMEWg+OhNajad7Qf7LPWkZZHh4faHGhOEVxbnIGrxOqfk8kddpWi7S0EkU0x50OfiZnzOtpuVg2l2IkPij4C7IsB6b6c7MC7jItAY5ob5WbyMzrLi8ZvG28sipcghF6TBMiLtrLAtxB87hFZFfFINEm0TfJoH5ExGvZrndAl65JwKK1Am0MGCwxn2/UtuvtLgEenAjmL1NfHq5+ESLJ/tyX1f1uT5UAd7er6hiJTLpDyQL42rWj5U4V/g+gpkAc4pVt21uHaUBZ510JcTy289tvJ1bv7BqyGKxN+zdhyXjHkPXSYFM0owExpp5dswL7EvX6B/jkELUmzyTvBRtv+h6a6VEaJf0D8QjYJ4ll5lkAAAAASUVORK5CYII=');
+}
+
+.sp__row--check .sp__value {
+  justify-content: space-between;
+}
+
+.sp__cell--list {
+  padding: 20px;
+}
+.sp__list {
+  border: 2px solid grey;
+  background-color: white;
+  border-radius: 4px;
+
+  padding: 10px;
+  width: 100%;
+  min-width: 150px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.sp__word.sp__challenge::after {
+  content: 'challenge word!';
+  position: absolute;
+  color: red;
+  font-size: 10px;
+  font-style: italic;
+  margin: 0 10px;
+}
+@media only screen and (max-width: 700px) {
+  .sp {
+    padding: 20px !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .sp__list {
+    display: none;
+  }
+}
