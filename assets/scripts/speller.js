@@ -43,7 +43,11 @@
     ['are', 'ff', 'ie', 'k', 'll', 'ore', 'ea', 'ss', 'tch', 've', 'y', 'zz']
   ]
 
+  var success = null
+
   function loadWordList(syl, ln, cb) {
+    clearList()
+    clearSpellResult()
     if (!lists[ln].includes(syl)) syl = lists[0][0]
     var list = './assets/lists/' + syl + '.json'
     const p = $.getJSON(list).done(function(data) {
@@ -71,6 +75,20 @@
   function getCurrentWord() {
     return words[index]
   }
+  function getSpellResult() {
+    return success
+  }
+  function setSpellSuccesss() {
+    success = true
+  }
+  function setSpellError() {
+    success = false
+  }
+
+  function clearSpellResult() {
+    success = null
+  }
+
   function getInput() {
     return $('.sp__input').val()
   }
@@ -78,17 +96,24 @@
     return getInput().toLowerCase() === getCurrentWord().toLowerCase()
   }
   function markInvalid() {
+    setSpellError()
     $('.sp__input').removeClass('sp__input--valid')
     $('.sp__input').addClass('sp__input--invalid')
   }
   function markValid() {
+    setSpellSuccesss()
     $('.sp__input').removeClass('sp__input--invalid')
     $('.sp__input').addClass('sp__input--valid')
   }
   function clearInput() {
+    clearSpellResult()
     $('.sp__input').removeClass('sp__input--invalid')
     $('.sp__input').removeClass('sp__input--valid')
     $('.sp__input').val('')
+  }
+  function setStartMode() {
+    $('.sp__mode--view').hide()
+    $('.sp__mode--input').hide()
   }
   function setInputMode() {
     $('.sp__mode--view').hide()
@@ -107,10 +132,19 @@
     $('.sp__check').fadeIn()
   }
   function clearList() {
-    $('.sp__list').text()
+    $('.sp__list').text('')
   }
   function addToList() {
-    $('.sp__list').html($('.sp__list').html() + getCurrentWord() + '<br/>')
+    var s =
+      getSpellResult() === true ? 'sp__result--valid' : 'sp__result--invalid'
+    $('.sp__list').html(
+      $('.sp__list').html() +
+        '<div class="sp__result ' +
+        s +
+        '">' +
+        getCurrentWord() +
+        '</div>'
+    )
   }
   function setListPicker() {
     $('.sp__pick__default').text(options.select)
@@ -190,6 +224,8 @@
   function setNextFn() {
     $('.sp__next').click(function(e) {
       e.preventDefault()
+
+      addToList()
       index = index + 1
       if (index === words.length) {
         toggleAllDone()
@@ -207,7 +243,6 @@
       showActions()
       if (isSame()) {
         markValid()
-        addToList()
       } else markInvalid()
     })
   }
@@ -250,6 +285,8 @@
     }
     if (synth) showSpeech()
     loadClickFns()
-    loadWordList(lists[0][0], 0, cb)
+    setStartMode()
+    // setListTitle(normalizeTitle(lists[0][0]))
+    // loadWordList(lists[0][0], 0, cb)
   }
 })(jQuery)

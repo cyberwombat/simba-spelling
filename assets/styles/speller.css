@@ -139,7 +139,6 @@
   display: inline-block;
   padding: 10px 10px;
   font-weight: bold;
-  text-transform: uppercase;
   font-size: 12px;
   line-height: 12px;
 }
@@ -148,8 +147,21 @@
 }
 .sp__word {
   font-size: 15px;
-  text-transform: uppercase;
   font-weight: bold;
+}
+.sp__result {
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-position: center left;
+  line-height: 20px;
+}
+
+.sp__result--invalid {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAACqADAAQAAAABAAAACgAAAAAYsJrPAAAAm0lEQVQYGYWQMQ7CMAxFbdM1V0A9BCsSl+qCBFPVhUshsXIIxBWylpg8NR0SFZHB0vd//kmsUs47hOMsaVCXAy1XeXZit32MD7RSXiGc3dPoRdPjZDOp2qWPcVKSPp7uGbLFrivwTu3UcV22NiFGCICx9U11Tq1gfibVaI7ld22z1TDGCnhwa64aD8bYk4pet2B6rGdhyui/hX8B5+s82o8EUpgAAAAASUVORK5CYII=');
+}
+
+.sp__result--valid {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAACqADAAQAAAABAAAACgAAAAAYsJrPAAAAoklEQVQYGYWQPQoCQQyF8+K2ewXxELaCV9rCRtBKbCz2SoLtHkK8wrY6MS8jYmDAKQIv+SY/D/J5w6Pf2LPsBLKOlMmETi/jcr5Rg2G49/ti5SRWNXN8gBRAD+NqPiM6vcrVTLSWcwx4oduO40zaEL9EA2f0u1NulJXv3RyXqarUD5hahZRzRmkBF06FHxHHOKPhE3BswQHRHvcyfGSDf4a/AQYMPnnM7F9TAAAAAElFTkSuQmCC');
 }
 .sp__speech {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAFAAAAAAEDbqWAAABCklEQVQ4EdVVuw3CMBA1n46CDokF6BCiYAUYhEFgACYApgAKSmaAHeiRqJAQvKf4iHU5oyQkBSe9+PLe3TmOnYtz5W2I1GP59HhmH9IWeAKveFhxpYOUBXAHWFgA17SuyRpkE9wcuAJSNBx1ygDEHrgALS3q+xmIMxAW1L7k8IlXwMPH3zCOADOZPE0Xs+6TSOd2Pp57swF6InxLsjTNSZ0JnBMwFoJjA2CCNvI0S0uU9CqxKRN43MBarV1x9cyK/24Fmf2ofQVVTmAeU+6xPtfhRlma5uScsD1Q44e2Bj4fGvyoTaH83Cqi1b3A11i02R2Qk6vZhZOzXS+Bytt1OAn92n44eqJcv8w3r5dtqe1WHxEAAAAASUVORK5CYII=');
@@ -176,6 +188,7 @@
   padding: 20px;
 }
 .sp__list {
+  overflow: scroll;
   border: 2px solid grey;
   background-color: white;
   border-radius: 4px;
