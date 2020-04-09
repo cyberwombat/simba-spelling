@@ -4,107 +4,120 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
+  <!--<![endif]-->
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Speller</title>
-  <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Speller</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta http-equiv="Cache-Control"
-    content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
-  <!-- begin required asssets -->
-  <link rel="stylesheet" href="./assets/styles/speller.css?v=3" />
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
-  <script src="./assets/scripts/speller.js?v=3"></script>
-  <!-- end required asssets -->
-</head>
+    <link rel="stylesheet" href="./speller.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
-  <!-- begin widget block -->
-  <div class="sp">
-    <div class="sp__box">
-      <div class="sp__row sp__row--pick">
-        <div class="sp__cell">
-          <div class="sp__pick">
-            <div class="sp__pick__default"></div>
-            <div class="sp__pick__list" style="display: none"></div>
+  <body>
+    <!-- begin widget block -->
+    <div class="sp">
+      <div class="sp__box">
+        <div class="sp__row sp__row--pick">
+          <div class="sp__cell">
+            <div class="sp__pick">
+              <div class="sp__pick__default"></div>
+              <div class="sp__pick__list" style="display: none;"></div>
+            </div>
+          </div>
+          <div class="sp__cell">
+            <div class="sp__picked"></div>
           </div>
         </div>
-        <div class="sp__cell">
-          <div class="sp__picked"></div>
-        </div>
-      </div>
-      <div class="sp__row">
-        <div class="sp__cell sp__cell--cmds">
-          <div class="sp__row sp__row--look">
-            <div class="sp__cell sp__key">Look</div>
-            <div class="sp__cell sp__value">
-              <div class="sp__word sp__mode--view"></div>
-            </div>
-          </div>
-          <div class="sp__row sp__row--say" style="display:none;">
-            <div class="sp__cell sp__key">Say</div>
-            <div class="sp__cell sp__value">
-              <div class="sp__speech"></div>
-            </div>
-          </div>
-          <div class="sp__row sp__row--cover">
-            <div class="sp__cell sp__key">Cover</div>
-            <div class="sp__cell sp__value">
-              <div class="sp__button sp__cover sp__mode--view">Cover</div>
-              <div class="sp__button sp__look sp__mode--input"
-                style="display: none;">
-                Look Again
+        <div class="sp__row">
+          <div class="sp__cell sp__cell--cmds">
+            <div class="sp__row sp__row--look">
+              <div class="sp__cell sp__key">Look</div>
+              <div class="sp__cell sp__value">
+                <div class="sp__word sp__mode--view"></div>
               </div>
             </div>
-          </div>
-          <div class="sp__row sp__row--write">
-            <div class="sp__cell sp__key">Write</div>
-            <div class="sp__cell sp__value">
-              <input type="text" maxlength="10" style="display:none"
-                class="sp__input sp__mode--input" />
-            </div>
-          </div>
-          <div class="sp__row sp__row--check">
-            <div class="sp__cell sp__key">Check</div>
-            <div class="sp__cell sp__value">
-              <div class="sp__button sp__check  sp__mode--input" style="display:
-                none">
-                Check
+            <div class="sp__row sp__row--say" style="display: none;">
+              <div class="sp__cell sp__key">Say</div>
+              <div class="sp__cell sp__value">
+                <div class="sp__speech"></div>
               </div>
-              <div class="sp__finished" style="display: none;"></div>
+            </div>
+            <div class="sp__row sp__row--cover">
+              <div class="sp__cell sp__key">Cover</div>
+              <div class="sp__cell sp__value">
+                <div class="sp__button sp__cover sp__mode--view">Cover</div>
+                <div
+                  class="sp__button sp__look sp__mode--input"
+                  style="display: none;"
+                >
+                  Look Again
+                </div>
+              </div>
+            </div>
+            <div class="sp__row sp__row--write">
+              <div class="sp__cell sp__key">Write</div>
+              <div class="sp__cell sp__value">
+                <input
+                  type="text"
+                  maxlength="10"
+                  style="display: none;"
+                  class="sp__input sp__mode--input"
+                />
+              </div>
+            </div>
+            <div class="sp__row sp__row--check">
+              <div class="sp__cell sp__key">Check</div>
+              <div class="sp__cell sp__value">
+                <div
+                  class="sp__button sp__check sp__mode--input"
+                  style="display: none;"
+                >
+                  Check
+                </div>
+                <div class="sp__finished" style="display: none;"></div>
 
-              <div class="sp__actions sp__button sp__retry"
-                style="display: none;">
-                Try Again
-              </div>
-              <div class="sp__actions sp__button sp__next"
-                style="display: none;">
-                Next Word
+                <div
+                  class="sp__actions sp__button sp__retry"
+                  style="display: none;"
+                >
+                  Try Again
+                </div>
+                <div
+                  class="sp__actions sp__button sp__next"
+                  style="display: none;"
+                >
+                  Next Word
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="sp__cell sp__cell--list">
-          <div class="sp__list"></div>
+          <div class="sp__cell sp__cell--list">
+            <div class="sp__list"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script>
-    $(function() {
-      $().initSpeller({lists: './assets/lists/',done: 'All done!'},function() {})
-    })
-  </script>
-  <!-- end widget block -->
-</body>
-
+    <script src="./speller.js"></script>
+    <script>
+      $(function () {
+        $().initSpeller({}, function () {})
+      })
+    </script>
+    <!-- end widget block -->
+  </body>
 </html>

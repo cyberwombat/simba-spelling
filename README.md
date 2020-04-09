@@ -5,22 +5,28 @@
 ### Asssets
 
 Place in head - adjust paths accordingly.
+
 ```
-<link rel="stylesheet" href="./assets/styles/speller.css?v=3" />
+<link rel="stylesheet" href="./speller.css" />
+```
+
+Ensure jQuery is either available or add it:
+
+```
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
-<script src="./assets/scripts/speller.js?v=3"></script>
-````
-
-Place just before closing body tag. Function accepts the following options (shown with defaults) for paths, button texts, etc.
 ```
+
+Place just before closing body tag - adjust paths accordingly. Function accepts the following options (shown with defaults) for paths, button texts, etc.
+
+```
+<script src="./speller.js"></script>
 <script>
     $(function() {
       // Options can be passed - listed are the defaults
       var options = {
-        // lists: './assets/lists/', // Path to lists
-        // done: "That's all the words!", // End of lits text
+        // done: "That's all the words!", // End of list text
         // sound: 'Sound: %s', // List title
         // pack: 'Spelling set %s', // Dropdown list label
         // select: 'Select a list' // Dropdown header
@@ -31,7 +37,8 @@ Place just before closing body tag. Function accepts the following options (show
 ```
 
 ### Widget
-Place wherever widget should appear. 
+
+Place wherever widget should appear.
 
 ```
  <div class="sp">
@@ -103,6 +110,7 @@ Place wherever widget should appear.
       </div>
     </div>
   </div>
-  
+
 ```
+
 Note that current CSS may conflict/modify the widget.
