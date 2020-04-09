@@ -13,17 +13,26 @@ Place in head - adjust paths accordingly.
 <script src="./assets/scripts/speller.js?v=3"></script>
 ````
 
-Place just before closing body tag.
+Place just before closing body tag. Function accepts the following options (shown with defaults) for paths, button texts, etc.
 ```
 <script>
     $(function() {
-      $().initSpeller({lists: './assets/lists/',done: 'All done!'},function() {})
+      // Options can be passed - listed are the defaults
+      var options = {
+        // lists: './assets/lists/', // Path to lists
+        // done: "That's all the words!", // End of lits text
+        // sound: 'Sound: %s', // List title
+        // pack: 'Spelling set %s', // Dropdown list label
+        // select: 'Select a list' // Dropdown header
+      }
+      $().initSpeller(options, function() {})
     })
-  </script>
+ </script>
 ```
 
 ### Widget
-Place wherever widget should appear
+Place wherever widget should appear. 
+
 ```
  <div class="sp">
     <div class="sp__box">
