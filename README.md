@@ -14,6 +14,7 @@ Place in head - adjust paths accordingly.
 ````
 
 Place just before closing body tag.
+```
 <script>
     $(function() {
       $().initSpeller({lists: './assets/lists/',done: 'All done!'},function() {})
@@ -76,7 +77,6 @@ Place wherever widget should appear
                 Check
               </div>
               <div class="sp__finished" style="display: none;"></div>
-
               <div class="sp__actions sp__button sp__retry"
                 style="display: none;">
                 Try Again
