@@ -49,7 +49,7 @@
     clearList()
     clearSpellResult()
     if (!lists[ln].includes(syl)) syl = lists[0][0]
-    var list = './assets/lists/' + syl + '.json'
+    var list = options.lists + syl + '.json'
     const p = $.getJSON(list).done(function(data) {
       words = data
       index = 0
@@ -270,6 +270,7 @@
   var index = 0
   var words = []
   var options = {
+    lists: './assets/lists/',
     done: "That's all the words!",
     sound: 'Sound: %s',
     pack: 'Spelling set %s',
