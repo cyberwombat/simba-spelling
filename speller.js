@@ -774,7 +774,10 @@
     $('option', $dropdown).remove()
     
 
-    if (!set) return
+    if (!set) {
+      $dropdown.append($('<option />').text(options.select)).attr('disabled', true)
+      return
+    }
 
     $dropdown.attr('disabled', false).append($('<option />').text(options.pack.replace('%s', set)))
 
@@ -814,7 +817,10 @@
   function setSpeechFn () {
     $('.sp__speech').click(function (e) {
       e.preventDefault()
+      const w = getCurrentWord()
+    
       var utterThis = new SpeechSynthesisUtterance(getCurrentWord())
+     
       synth.speak(utterThis)
     })
   }
