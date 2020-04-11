@@ -32,19 +32,36 @@
     <!-- begin widget block -->
     <div class="sp">
       <div class="sp__box">
-        <div class="sp__row sp__row--pick">
-          <div class="sp__cell">
-            <div class="sp__pick">
-              <div class="sp__pick__default"></div>
-              <div class="sp__pick__list" style="display: none;"></div>
-            </div>
-          </div>
-          <div class="sp__cell">
-            <div class="sp__picked"></div>
-          </div>
-        </div>
         <div class="sp__row">
           <div class="sp__cell sp__cell--cmds">
+            <div class="sp__row">
+              <div class="sp__cell sp__cell--sets">
+                <div
+                  data-set="1"
+                  class="sp__button sp__button__set sp__button__set--0"
+                >
+                  Set 1
+                </div>
+                <div
+                  data-set="2"
+                  class="sp__button sp__button__set sp__button__set--1"
+                >
+                  Set 2
+                </div>
+                <div
+                  data-set="3"
+                  class="sp__button sp__button__set sp__button__set--2"
+                >
+                  Set 3
+                </div>
+              </div>
+            </div>
+            <div class="sp__row sp__row--pick">
+              <div class="sp__cell sp__cell--pick">
+                <select disabled class="sp__pick" name="list"> </select>
+              </div>
+            </div>
+
             <div class="sp__row sp__row--look">
               <div class="sp__cell sp__key">Look</div>
               <div class="sp__cell sp__value">
@@ -54,7 +71,7 @@
             <div class="sp__row sp__row--say" style="display: none;">
               <div class="sp__cell sp__key">Say</div>
               <div class="sp__cell sp__value">
-                <div class="sp__speech"></div>
+                <div class="sp__speech sp__mode--active"></div>
               </div>
             </div>
             <div class="sp__row sp__row--cover">

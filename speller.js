@@ -1,4 +1,5 @@
 ;(function ($) {
+  var set = null
   var lists = [
     [
       'ai',
@@ -17,7 +18,7 @@
       'oo',
       'or',
       'ow',
-      'ur',
+      'ur'
     ],
     [
       'a-e',
@@ -38,9 +39,9 @@
       'ph',
       'u-e',
       'ue',
-      'wh',
+      'wh'
     ],
-    ['are', 'ff', 'ie', 'k', 'll', 'ore', 'ea', 'ss', 'tch', 've', 'y', 'zz'],
+    ['are', 'ff', 'ie', 'k', 'll', 'ore', 'ea', 'ss', 'tch', 've', 'y', 'zz']
   ]
 
   var dictionary = {
@@ -55,7 +56,7 @@
       'shapes',
       'estimate',
       'grapes',
-      'translate',
+      'translate'
     ],
     'e-e': [
       'theme',
@@ -68,7 +69,7 @@
       'delete',
       'obsolete',
       'sincere',
-      'Japanese',
+      'Japanese'
     ],
     ff: [
       'tiff',
@@ -81,7 +82,7 @@
       'bluff',
       'stuffed',
       'scoff',
-      'affection',
+      'affection'
     ],
     nk: [
       'pink',
@@ -94,7 +95,7 @@
       'skunk',
       'drink',
       'thank',
-      'chipmunk',
+      'chipmunk'
     ],
     ore: [
       'core',
@@ -107,7 +108,7 @@
       'before',
       'store',
       'adore',
-      'boredom',
+      'boredom'
     ],
     'u-e': [
       'tube',
@@ -120,7 +121,7 @@
       'refuse',
       'prune',
       'perfume',
-      'include',
+      'include'
     ],
     ai: [
       'rain',
@@ -133,7 +134,7 @@
       'waiter',
       'failed',
       'painful',
-      'explained',
+      'explained'
     ],
     ea: [
       'tea',
@@ -146,7 +147,7 @@
       'leave',
       'breath',
       'squeal',
-      'kneadea',
+      'kneadea'
     ],
     'i-e': [
       'hide',
@@ -159,7 +160,7 @@
       'mice',
       'slime',
       'while',
-      'guide',
+      'guide'
     ],
     'o-e': [
       'code',
@@ -172,7 +173,7 @@
       'froze',
       'stroke',
       'quote',
-      'chose',
+      'chose'
     ],
     ou: [
       'out',
@@ -185,7 +186,7 @@
       'blouse',
       'bounce',
       'lounge',
-      'scrounge',
+      'scrounge'
     ],
     ue: [
       'blue',
@@ -198,7 +199,7 @@
       'statue',
       'rescue',
       'value',
-      'barbecue',
+      'barbecue'
     ],
     air: [
       'air',
@@ -211,7 +212,7 @@
       'airport',
       'staircase',
       'unfair',
-      'hairstylist',
+      'hairstylist'
     ],
     ea2: [
       'head',
@@ -224,7 +225,7 @@
       'leather',
       'weather',
       'meadow',
-      'breakfast',
+      'breakfast'
     ],
     ie: [
       'field',
@@ -237,7 +238,7 @@
       'piece',
       'fierce',
       'achieve',
-      'hygiene',
+      'hygiene'
     ],
     oa: [
       'goat',
@@ -250,7 +251,7 @@
       'boasts',
       'cloaks',
       'poached',
-      'approach',
+      'approach'
     ],
     ow: [
       'now',
@@ -263,7 +264,7 @@
       'crown',
       'growling',
       'prowled',
-      'drowning',
+      'drowning'
     ],
     ur: [
       'turn',
@@ -276,7 +277,7 @@
       'surprise',
       'purple',
       'turtle',
-      'burgundy',
+      'burgundy'
     ],
     ar: [
       'car',
@@ -289,7 +290,7 @@
       'arcade',
       'armband',
       'charm',
-      'carwash',
+      'carwash'
     ],
     ear: [
       'ear',
@@ -302,7 +303,7 @@
       'tearful',
       'wearing',
       'cleared',
-      'appearance',
+      'appearance'
     ],
     igh: [
       'high',
@@ -315,7 +316,7 @@
       'delight',
       'highlight',
       'slight',
-      'nightmare',
+      'nightmare'
     ],
     oe: [
       'toe',
@@ -328,7 +329,7 @@
       'oboes',
       'foes',
       'woes',
-      'tiptoed',
+      'tiptoed'
     ],
     ow_long: [
       'blow',
@@ -341,7 +342,7 @@
       'elbow',
       'borrow',
       'meadow',
-      'tomorrow',
+      'tomorrow'
     ],
     ve: [
       'live',
@@ -354,7 +355,7 @@
       'massive',
       'extensive',
       'detective',
-      'aggressive',
+      'aggressive'
     ],
     are: [
       'care',
@@ -367,7 +368,7 @@
       'shared',
       'spared',
       'hare',
-      'carefulness',
+      'carefulness'
     ],
     ee: [
       'fee',
@@ -380,7 +381,7 @@
       'beehive',
       'freeze',
       'beetroot',
-      'cheetah',
+      'cheetah'
     ],
     ir: [
       'fir',
@@ -393,7 +394,7 @@
       'squirm',
       'thirteen',
       'thirty',
-      'circle',
+      'circle'
     ],
     oi: [
       'oil',
@@ -406,7 +407,7 @@
       'noisy',
       'oiled',
       'avoids',
-      'moisture',
+      'moisture'
     ],
     oy: [
       'joy',
@@ -419,7 +420,7 @@
       'royalty',
       'destroys',
       'loyalty',
-      'annoyingly',
+      'annoyingly'
     ],
     wh: [
       'wheel',
@@ -432,7 +433,7 @@
       'whale',
       'while',
       'whistle',
-      'overwhelm',
+      'overwhelm'
     ],
     au: [
       'fault',
@@ -445,7 +446,7 @@
       'August',
       'author',
       'launch',
-      'astronaut',
+      'astronaut'
     ],
     er_stressed: [
       'her',
@@ -458,7 +459,7 @@
       'swerve',
       'kerb',
       'person',
-      'allergy',
+      'allergy'
     ],
     k: [
       'Kent',
@@ -471,7 +472,7 @@
       'keep',
       'kangaroo',
       'skittle',
-      'kennel',
+      'kennel'
     ],
     oo: [
       'zoo',
@@ -484,7 +485,7 @@
       'scoop',
       'bamboo',
       'moody',
-      'noodles',
+      'noodles'
     ],
     ph: [
       'nephew',
@@ -497,7 +498,7 @@
       'pharmacy',
       'microphone',
       'diagraph',
-      'pharmacist',
+      'pharmacist'
     ],
     y: [
       'very',
@@ -510,7 +511,7 @@
       'hungry',
       'empty',
       'baby',
-      'penalty',
+      'penalty'
     ],
     aw: [
       'yawn',
@@ -523,7 +524,7 @@
       'crawl',
       'shawl',
       'scrawl',
-      'squawked',
+      'squawked'
     ],
     er_unstressed: [
       'better',
@@ -536,7 +537,7 @@
       'summer',
       'thicker',
       'number',
-      'another',
+      'another'
     ],
     ll: [
       'doll',
@@ -549,7 +550,7 @@
       'telling',
       'filled',
       'tallest',
-      'smelliest',
+      'smelliest'
     ],
     oo_short: [
       'book',
@@ -562,7 +563,7 @@
       'wooden',
       'woolly',
       'shook',
-      'workbook',
+      'workbook'
     ],
     ss: [
       'miss',
@@ -575,7 +576,7 @@
       'stress',
       'hissed',
       'dress',
-      'baldness',
+      'baldness'
     ],
     zz: [
       'buzz',
@@ -588,7 +589,7 @@
       'fizzy',
       'dazzle',
       'pizza',
-      'bedazzled',
+      'bedazzled'
     ],
     ay: [
       'may',
@@ -602,7 +603,7 @@
       'betray',
       'playing',
       'paying',
-      'birthdays',
+      'birthdays'
     ],
     ew: [
       'new',
@@ -615,7 +616,7 @@
       'chewable',
       'dewdrop',
       'curfews',
-      'bejewelled',
+      'bejewelled'
     ],
     ng: [
       'bang',
@@ -628,7 +629,7 @@
       'kangaroo',
       'roofing',
       'bungalow',
-      'stitching',
+      'stitching'
     ],
     or: [
       'for',
@@ -641,7 +642,7 @@
       'storms',
       'short',
       'scorch',
-      'according',
+      'according'
     ],
     tch: [
       'itch',
@@ -654,8 +655,8 @@
       'patchy',
       'sketch',
       'witches',
-      'matchboxes',
-    ],
+      'matchboxes'
+    ]
   }
 
   var index = 0
@@ -664,11 +665,11 @@
     done: "That's all the words!",
     sound: 'Sound: %s',
     pack: 'Spelling set %s',
-    select: 'Select a list',
+    select: 'Select a spelling set'
   }
   var success = null
 
-  function getWordList(syl, ln) {
+  function getWordList (syl) {
     clearList()
     clearSpellResult()
 
@@ -680,80 +681,82 @@
     $('.sp__pick--' + syl).addClass('sp__selected')
   }
 
-  function loadWord() {
+  function loadWord () {
     toggleChallenge()
     $('.sp__word').text(getCurrentWord())
   }
-  function toggleChallenge() {
+  function toggleChallenge () {
     if (index === words.length - 1) {
       $('.sp__word').addClass('sp__challenge')
     } else {
       $('.sp__word').removeClass('sp__challenge')
     }
   }
-  function getCurrentWord() {
+  function getCurrentWord () {
     return words[index]
   }
-  function getSpellResult() {
+  function getSpellResult () {
     return success
   }
-  function setSpellSuccesss() {
+  function setSpellSuccesss () {
     success = true
   }
-  function setSpellError() {
+  function setSpellError () {
     success = false
   }
 
-  function clearSpellResult() {
+  function clearSpellResult () {
     success = null
   }
 
-  function getInput() {
+  function getInput () {
     return $('.sp__input').val()
   }
-  function isSame() {
+  function isSame () {
     return getInput().toLowerCase() === getCurrentWord().toLowerCase()
   }
-  function markInvalid() {
+  function markInvalid () {
     setSpellError()
     $('.sp__input').removeClass('sp__input--valid')
     $('.sp__input').addClass('sp__input--invalid')
   }
-  function markValid() {
+  function markValid () {
     setSpellSuccesss()
     $('.sp__input').removeClass('sp__input--invalid')
     $('.sp__input').addClass('sp__input--valid')
   }
-  function clearInput() {
+  function clearInput () {
     clearSpellResult()
     $('.sp__input').removeClass('sp__input--invalid')
     $('.sp__input').removeClass('sp__input--valid')
     $('.sp__input').val('')
   }
-  function setStartMode() {
+  function setStartMode () {
     $('.sp__mode--view').hide()
     $('.sp__mode--input').hide()
+    $('.sp__mode--active').hide()
   }
-  function setInputMode() {
+  function setInputMode () {
     $('.sp__mode--view').hide()
     $('.sp__mode--input').fadeIn()
   }
-  function setViewMode() {
+  function setViewMode () {
+     $('.sp__mode--active').show()
     $('.sp__mode--input').hide()
     $('.sp__mode--view').fadeIn()
   }
-  function showActions() {
+  function showActions () {
     $('.sp__check').hide()
     $('.sp__actions').fadeIn()
   }
-  function showCheck() {
+  function showCheck () {
     $('.sp__actions').hide()
     $('.sp__check').fadeIn()
   }
-  function clearList() {
+  function clearList () {
     $('.sp__list').text('')
   }
-  function addToList() {
+  function addToList () {
     var s =
       getSpellResult() === true ? 'sp__result--valid' : 'sp__result--invalid'
     $('.sp__list').html(
@@ -765,74 +768,69 @@
         '</div>'
     )
   }
-  function setListPicker() {
-    $('.sp__pick__default').text(options.select)
-    $('.sp__pick').click(function () {
-      $('.sp__pick__list', this).toggle()
-    })
-    $('.sp__pick__list').mouseleave(function () {
-      $(this).hide()
-    })
-    var list_tpl = '<div class="sp__pick__list--content"></div>'
-    var sublist_tpl = '<div class="sp__pick__list--lists"></div>'
-    var item_tpl = '<div class="sp__pick__item sp__pick__item--%s">%s</div>'
-    var hdr_tpl = '<div class="sp__pick__list--header"></div>'
-    var sec_tpl = '<div class="sp__pick__list--list"></div>'
-    var parent = $('.sp__pick__list')
-    lists.forEach(function (l, index) {
-      var hdr = $(hdr_tpl).text(options.pack.replace('%s', index + 1))
+  function setListPicker () {
+    var $dropdown = $('.sp__pick')
 
-      var content = $(list_tpl).append(hdr)
-      var section_container = $(sublist_tpl)
-      var sections = [l.slice(0, 10), l.slice(10)]
+    $('option', $dropdown).remove()
+    
 
-      sections.forEach(function (section, i) {
-        var sec = $(sec_tpl)
-        section.forEach(function (s, i) {
-          var title = normalizeTitle(s)
-          var c = $(item_tpl.replace(/%s/g, title))
-            .click(function (e) {
-              e.preventDefault()
-              getWordList(s, index)
-              setListTitle(title)
-            })
-            .appendTo(sec)
-        })
-        sec.appendTo(section_container)
-      })
-      section_container.appendTo(content)
-      content.appendTo(parent)
+    if (!set) return
+
+    $dropdown.attr('disabled', false).append($('<option />').text(options.pack.replace('%s', set)))
+
+    var words = lists[set - 1]
+    words.forEach(function (w) {
+      $dropdown.append(
+        $('<option />')
+          .val(w)
+          .text(normalizeTitle(w))
+      )
+    })
+    $dropdown.on('change', function () {
+      getWordList(this.value)
+      setListTitle(normalizeTitle(this.value))
+      
     })
   }
-  function normalizeTitle(t) {
+  
+  function normalizeTitle (t) {
     if (t.match('_')) {
       t = t.replace('_', ' (') + ')'
     }
     return t
   }
-  function setListTitle(t) {
+  function setListTitle (t) {
     $('.sp__picked').text(options.sound.replace('%s', t))
   }
-  function setSpeechFn() {
+
+  function setSetFn () {
+    $('.sp__button__set').click(function (e) {
+      e.preventDefault()
+      set = parseInt($(this).attr('data-set'))
+      setListPicker()
+      setStartMode()
+    })
+  }
+  function setSpeechFn () {
     $('.sp__speech').click(function (e) {
       e.preventDefault()
       var utterThis = new SpeechSynthesisUtterance(getCurrentWord())
       synth.speak(utterThis)
     })
   }
-  function setCoverFn() {
+  function setCoverFn () {
     $('.sp__cover').click(function (e) {
       e.preventDefault()
       setInputMode()
     })
   }
-  function setLookFn() {
+  function setLookFn () {
     $('.sp__look').click(function (e) {
       e.preventDefault()
       setViewMode()
     })
   }
-  function setTryAgainFn() {
+  function setTryAgainFn () {
     $('.sp__retry').click(function (e) {
       e.preventDefault()
       clearInput()
@@ -840,7 +838,7 @@
       showCheck()
     })
   }
-  function setNextFn() {
+  function setNextFn () {
     $('.sp__next').click(function (e) {
       e.preventDefault()
 
@@ -856,7 +854,8 @@
       }
     })
   }
-  function setCheckFn() {
+
+  function setCheckFn () {
     $('.sp__check').click(function (e) {
       e.preventDefault()
       showActions()
@@ -865,19 +864,22 @@
       } else markInvalid()
     })
   }
-  function toggleAllDone() {
+  function toggleAllDone () {
     $('.sp__actions').toggle()
-    $('.sp__finished').html(options.done).toggle()
+    $('.sp__finished')
+      .html(options.done)
+      .toggle()
   }
 
-  function showSpeech() {
+  function showSpeech () {
     $('.sp__row--say').show()
   }
 
-  function loadClickFns() {
+  function loadClickFns () {
     setSpeechFn()
     setCoverFn()
     setLookFn()
+    setSetFn()
     setCheckFn()
     setTryAgainFn()
     setNextFn()

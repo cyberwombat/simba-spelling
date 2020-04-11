@@ -1,10 +1,22 @@
 <style>
+  body {
+    position: relative;
+  }
   .sp {
-    padding: 100px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    width: 600px;
+  }
+  .sp__box {
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 600px;
+    border-radius: 15px;
+    background-color: #ededed;
+    border: 7px solid grey;
   }
 
   .sp__picked {
@@ -12,117 +24,76 @@
     font-size: 20px;
     font-weight: bold;
   }
-
-  .sp__pick__list--header {
-    font-weight: bold;
-    margin: 5px;
-    text-align: center;
+  .sp__cell--pick {
+    padding: 0 10px;
   }
-
   .sp__pick {
     display: inline-flex;
-    border-radius: 4px;
-    border: 2px solid grey;
-    margin: 10px;
-    width: 300px;
-    line-height: 30px;
-    text-align: left;
 
-    cursor: pointer;
-    background-color: white;
-    position: relative;
-  }
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: 0.6em 1.4em 0.5em 0.8em;
+    width: 100%;
+    max-width: 100%;
 
-  .sp__pick__default {
-    color: grey;
-    font-weight: 900;
-    padding: 5px 10px;
-  }
-
-  .sp__pick__list--content {
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid silver;
-    margin-right: 10px;
-    padding-right: 10px;
-  }
-
-  .sp__pick__list--content:last-child {
-    border: none;
+    box-sizing: border-box;
     margin: 0;
-    padding: 0;
+
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+    border-radius: 0.5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
   }
-
-  .sp__pick__list {
-    border-radius: 4px;
-    position: absolute;
-    z-index: 100;
-    border: 2px solid grey;
-    background-color: white;
-    display: flex;
-    padding: 5px;
-    top: -50px;
+  .sp__pick::-ms-expand {
+    display: none;
   }
-
-  .sp__pick__list--list {
-    flex: 1;
-    width: 130px;
+  .sp__pick:hover {
+    border-color: #888;
   }
-
-  .sp__pick__list--lists {
-    display: flex;
-    flex-direction: row;
+  .sp__pick:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
   }
-
-  .sp__pick__item {
-    padding: 0 5px;
-    line-height: 25px;
-    font-size: 15px;
-    color: #242424;
-    font-style: italic;
-  }
-
-  .sp__pick__item:hover {
-    background-color: #eee;
-    border-radius: 3px;
-  }
-
-  .sp__box {
-    display: inline-flex;
-    flex-direction: column;
-
-    border-radius: 4px;
-    background-color: #ededed;
-    border: 5px solid grey;
+  .sp__pick option {
+    font-weight: normal;
   }
 
   .sp__row {
     display: flex;
   }
-
   .sp__cell {
+    outline: 1px solid red;
     flex: 2;
     text-align: left;
   }
-
   .sp__cell:nth-child(1) {
     flex: 1;
   }
-
   .sp__cell:nth-child(2) {
     flex: 2;
   }
-
   .sp__key {
     font-weight: bold;
     width: 100px;
     color: #4f4f4f;
   }
-
   .sp__value {
     width: 150px;
   }
-
   .sp__key,
   .sp__value {
     align-self: stretch;
@@ -150,7 +121,6 @@
     background-position: right 5px center;
     background-repeat: no-repeat;
   }
-
   .sp__button {
     border-radius: 4px;
     background-color: #4364ed;
@@ -163,16 +133,13 @@
     font-size: 12px;
     line-height: 12px;
   }
-
   .sp__selected {
     background-color: #8542ff;
   }
-
   .sp__word {
     font-size: 15px;
     font-weight: bold;
   }
-
   .sp__result {
     background-repeat: no-repeat;
     padding-left: 20px;
@@ -187,7 +154,6 @@
   .sp__result--valid {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAACqADAAQAAAABAAAACgAAAAAYsJrPAAAAoklEQVQYGYWQPQoCQQyF8+K2ewXxELaCV9rCRtBKbCz2SoLtHkK8wrY6MS8jYmDAKQIv+SY/D/J5w6Pf2LPsBLKOlMmETi/jcr5Rg2G49/ti5SRWNXN8gBRAD+NqPiM6vcrVTLSWcwx4oduO40zaEL9EA2f0u1NulJXv3RyXqarUD5hahZRzRmkBF06FHxHHOKPhE3BswQHRHvcyfGSDf4a/AQYMPnnM7F9TAAAAAElFTkSuQmCC');
   }
-
   .sp__speech {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAUCAYAAACXtf2DAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAGKADAAQAAAABAAAAFAAAAAAEDbqWAAABCklEQVQ4EdVVuw3CMBA1n46CDokF6BCiYAUYhEFgACYApgAKSmaAHeiRqJAQvKf4iHU5oyQkBSe9+PLe3TmOnYtz5W2I1GP59HhmH9IWeAKveFhxpYOUBXAHWFgA17SuyRpkE9wcuAJSNBx1ygDEHrgALS3q+xmIMxAW1L7k8IlXwMPH3zCOADOZPE0Xs+6TSOd2Pp57swF6InxLsjTNSZ0JnBMwFoJjA2CCNvI0S0uU9CqxKRN43MBarV1x9cyK/24Fmf2ofQVVTmAeU+6xPtfhRlma5uScsD1Q44e2Bj4fGvyoTaH83Cqi1b3A11i02R2Qk6vZhZOzXS+Bytt1OAn92n44eqJcv8w3r5dtqe1WHxEAAAAASUVORK5CYII=');
     width: 24px;
@@ -209,10 +175,25 @@
     justify-content: space-between;
   }
 
+  .sp__cell--sets {
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  .sp__cell--sets .sp__button {
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100px;
+    margin-right: 20px;
+  }
+  .sp__cell--sets .sp__button:last-child {
+    margin-right: 0;
+  }
+
   .sp__cell--list {
     padding: 20px;
   }
-
   .sp__list {
     overflow: scroll;
     border: 2px solid grey;
@@ -234,34 +215,49 @@
     font-style: italic;
     margin: 0 10px;
   }
-
   @media only screen and (max-width: 700px) {
     .sp {
-      padding: 20px !important;
+      width: auto;
     }
   }
-
   @media only screen and (max-width: 600px) {
-    .sp__list {
+    .sp__cell--list {
       display: none;
     }
   }
 </style>
 <div class="sp">
   <div class="sp__box">
-    <div class="sp__row sp__row--pick">
-      <div class="sp__cell">
-        <div class="sp__pick">
-          <div class="sp__pick__default"></div>
-          <div class="sp__pick__list" style="display: none;"></div>
-        </div>
-      </div>
-      <div class="sp__cell">
-        <div class="sp__picked"></div>
-      </div>
-    </div>
     <div class="sp__row">
       <div class="sp__cell sp__cell--cmds">
+        <div class="sp__row">
+          <div class="sp__cell sp__cell--sets">
+            <div
+              data-set="1"
+              class="sp__button sp__button__set sp__button__set--0"
+            >
+              Set 1
+            </div>
+            <div
+              data-set="2"
+              class="sp__button sp__button__set sp__button__set--1"
+            >
+              Set 2
+            </div>
+            <div
+              data-set="3"
+              class="sp__button sp__button__set sp__button__set--2"
+            >
+              Set 3
+            </div>
+          </div>
+        </div>
+        <div class="sp__row sp__row--pick">
+          <div class="sp__cell sp__cell--pick">
+            <select disabled class="sp__pick" name="list"> </select>
+          </div>
+        </div>
+
         <div class="sp__row sp__row--look">
           <div class="sp__cell sp__key">Look</div>
           <div class="sp__cell sp__value">
@@ -271,15 +267,17 @@
         <div class="sp__row sp__row--say" style="display: none;">
           <div class="sp__cell sp__key">Say</div>
           <div class="sp__cell sp__value">
-            <div class="sp__speech"></div>
+            <div class="sp__speech sp__mode--active"></div>
           </div>
         </div>
         <div class="sp__row sp__row--cover">
           <div class="sp__cell sp__key">Cover</div>
           <div class="sp__cell sp__value">
             <div class="sp__button sp__cover sp__mode--view">Cover</div>
-            <div class="sp__button sp__look sp__mode--input"
-              style="display: none;">
+            <div
+              class="sp__button sp__look sp__mode--input"
+              style="display: none;"
+            >
               Look Again
             </div>
           </div>
@@ -287,21 +285,29 @@
         <div class="sp__row sp__row--write">
           <div class="sp__cell sp__key">Write</div>
           <div class="sp__cell sp__value">
-            <input type="text" maxlength="10" style="display: none;"
-              class="sp__input sp__mode--input" />
+            <input
+              type="text"
+              maxlength="10"
+              style="display: none;"
+              class="sp__input sp__mode--input"
+            />
           </div>
         </div>
         <div class="sp__row sp__row--check">
           <div class="sp__cell sp__key">Check</div>
           <div class="sp__cell sp__value">
-            <div class="sp__button sp__check sp__mode--input"
-              style="display: none;">
+            <div
+              class="sp__button sp__check sp__mode--input"
+              style="display: none;"
+            >
               Check
             </div>
             <div class="sp__finished" style="display: none;"></div>
 
-            <div class="sp__actions sp__button sp__retry"
-              style="display: none;">
+            <div
+              class="sp__actions sp__button sp__retry"
+              style="display: none;"
+            >
               Try Again
             </div>
             <div class="sp__actions sp__button sp__next" style="display: none;">
@@ -316,11 +322,15 @@
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-<script>; (function($) {
-    var lists=[
+  crossorigin="anonymous"
+></script>
+<script>
+  ;(function ($) {
+    var set = null
+    var lists = [
       [
         'ai',
         'air',
@@ -338,7 +348,7 @@
         'oo',
         'or',
         'ow',
-        'ur',
+        'ur'
       ],
       [
         'a-e',
@@ -359,12 +369,12 @@
         'ph',
         'u-e',
         'ue',
-        'wh',
+        'wh'
       ],
-      ['are','ff','ie','k','ll','ore','ea','ss','tch','ve','y','zz'],
+      ['are', 'ff', 'ie', 'k', 'll', 'ore', 'ea', 'ss', 'tch', 've', 'y', 'zz']
     ]
 
-    var dictionary={
+    var dictionary = {
       'a-e': [
         'make',
         'bake',
@@ -376,7 +386,7 @@
         'shapes',
         'estimate',
         'grapes',
-        'translate',
+        'translate'
       ],
       'e-e': [
         'theme',
@@ -389,7 +399,7 @@
         'delete',
         'obsolete',
         'sincere',
-        'Japanese',
+        'Japanese'
       ],
       ff: [
         'tiff',
@@ -402,7 +412,7 @@
         'bluff',
         'stuffed',
         'scoff',
-        'affection',
+        'affection'
       ],
       nk: [
         'pink',
@@ -415,7 +425,7 @@
         'skunk',
         'drink',
         'thank',
-        'chipmunk',
+        'chipmunk'
       ],
       ore: [
         'core',
@@ -428,7 +438,7 @@
         'before',
         'store',
         'adore',
-        'boredom',
+        'boredom'
       ],
       'u-e': [
         'tube',
@@ -441,7 +451,7 @@
         'refuse',
         'prune',
         'perfume',
-        'include',
+        'include'
       ],
       ai: [
         'rain',
@@ -454,7 +464,7 @@
         'waiter',
         'failed',
         'painful',
-        'explained',
+        'explained'
       ],
       ea: [
         'tea',
@@ -467,7 +477,7 @@
         'leave',
         'breath',
         'squeal',
-        'kneadea',
+        'kneadea'
       ],
       'i-e': [
         'hide',
@@ -480,7 +490,7 @@
         'mice',
         'slime',
         'while',
-        'guide',
+        'guide'
       ],
       'o-e': [
         'code',
@@ -493,7 +503,7 @@
         'froze',
         'stroke',
         'quote',
-        'chose',
+        'chose'
       ],
       ou: [
         'out',
@@ -506,7 +516,7 @@
         'blouse',
         'bounce',
         'lounge',
-        'scrounge',
+        'scrounge'
       ],
       ue: [
         'blue',
@@ -519,7 +529,7 @@
         'statue',
         'rescue',
         'value',
-        'barbecue',
+        'barbecue'
       ],
       air: [
         'air',
@@ -532,7 +542,7 @@
         'airport',
         'staircase',
         'unfair',
-        'hairstylist',
+        'hairstylist'
       ],
       ea2: [
         'head',
@@ -545,7 +555,7 @@
         'leather',
         'weather',
         'meadow',
-        'breakfast',
+        'breakfast'
       ],
       ie: [
         'field',
@@ -558,7 +568,7 @@
         'piece',
         'fierce',
         'achieve',
-        'hygiene',
+        'hygiene'
       ],
       oa: [
         'goat',
@@ -571,7 +581,7 @@
         'boasts',
         'cloaks',
         'poached',
-        'approach',
+        'approach'
       ],
       ow: [
         'now',
@@ -584,7 +594,7 @@
         'crown',
         'growling',
         'prowled',
-        'drowning',
+        'drowning'
       ],
       ur: [
         'turn',
@@ -597,7 +607,7 @@
         'surprise',
         'purple',
         'turtle',
-        'burgundy',
+        'burgundy'
       ],
       ar: [
         'car',
@@ -610,7 +620,7 @@
         'arcade',
         'armband',
         'charm',
-        'carwash',
+        'carwash'
       ],
       ear: [
         'ear',
@@ -623,7 +633,7 @@
         'tearful',
         'wearing',
         'cleared',
-        'appearance',
+        'appearance'
       ],
       igh: [
         'high',
@@ -636,7 +646,7 @@
         'delight',
         'highlight',
         'slight',
-        'nightmare',
+        'nightmare'
       ],
       oe: [
         'toe',
@@ -649,7 +659,7 @@
         'oboes',
         'foes',
         'woes',
-        'tiptoed',
+        'tiptoed'
       ],
       ow_long: [
         'blow',
@@ -662,7 +672,7 @@
         'elbow',
         'borrow',
         'meadow',
-        'tomorrow',
+        'tomorrow'
       ],
       ve: [
         'live',
@@ -675,7 +685,7 @@
         'massive',
         'extensive',
         'detective',
-        'aggressive',
+        'aggressive'
       ],
       are: [
         'care',
@@ -688,7 +698,7 @@
         'shared',
         'spared',
         'hare',
-        'carefulness',
+        'carefulness'
       ],
       ee: [
         'fee',
@@ -701,7 +711,7 @@
         'beehive',
         'freeze',
         'beetroot',
-        'cheetah',
+        'cheetah'
       ],
       ir: [
         'fir',
@@ -714,7 +724,7 @@
         'squirm',
         'thirteen',
         'thirty',
-        'circle',
+        'circle'
       ],
       oi: [
         'oil',
@@ -727,7 +737,7 @@
         'noisy',
         'oiled',
         'avoids',
-        'moisture',
+        'moisture'
       ],
       oy: [
         'joy',
@@ -740,7 +750,7 @@
         'royalty',
         'destroys',
         'loyalty',
-        'annoyingly',
+        'annoyingly'
       ],
       wh: [
         'wheel',
@@ -753,7 +763,7 @@
         'whale',
         'while',
         'whistle',
-        'overwhelm',
+        'overwhelm'
       ],
       au: [
         'fault',
@@ -766,7 +776,7 @@
         'August',
         'author',
         'launch',
-        'astronaut',
+        'astronaut'
       ],
       er_stressed: [
         'her',
@@ -779,7 +789,7 @@
         'swerve',
         'kerb',
         'person',
-        'allergy',
+        'allergy'
       ],
       k: [
         'Kent',
@@ -792,7 +802,7 @@
         'keep',
         'kangaroo',
         'skittle',
-        'kennel',
+        'kennel'
       ],
       oo: [
         'zoo',
@@ -805,7 +815,7 @@
         'scoop',
         'bamboo',
         'moody',
-        'noodles',
+        'noodles'
       ],
       ph: [
         'nephew',
@@ -818,7 +828,7 @@
         'pharmacy',
         'microphone',
         'diagraph',
-        'pharmacist',
+        'pharmacist'
       ],
       y: [
         'very',
@@ -831,7 +841,7 @@
         'hungry',
         'empty',
         'baby',
-        'penalty',
+        'penalty'
       ],
       aw: [
         'yawn',
@@ -844,7 +854,7 @@
         'crawl',
         'shawl',
         'scrawl',
-        'squawked',
+        'squawked'
       ],
       er_unstressed: [
         'better',
@@ -857,7 +867,7 @@
         'summer',
         'thicker',
         'number',
-        'another',
+        'another'
       ],
       ll: [
         'doll',
@@ -870,7 +880,7 @@
         'telling',
         'filled',
         'tallest',
-        'smelliest',
+        'smelliest'
       ],
       oo_short: [
         'book',
@@ -883,7 +893,7 @@
         'wooden',
         'woolly',
         'shook',
-        'workbook',
+        'workbook'
       ],
       ss: [
         'miss',
@@ -896,7 +906,7 @@
         'stress',
         'hissed',
         'dress',
-        'baldness',
+        'baldness'
       ],
       zz: [
         'buzz',
@@ -909,7 +919,7 @@
         'fizzy',
         'dazzle',
         'pizza',
-        'bedazzled',
+        'bedazzled'
       ],
       ay: [
         'may',
@@ -923,7 +933,7 @@
         'betray',
         'playing',
         'paying',
-        'birthdays',
+        'birthdays'
       ],
       ew: [
         'new',
@@ -936,7 +946,7 @@
         'chewable',
         'dewdrop',
         'curfews',
-        'bejewelled',
+        'bejewelled'
       ],
       ng: [
         'bang',
@@ -949,7 +959,7 @@
         'kangaroo',
         'roofing',
         'bungalow',
-        'stitching',
+        'stitching'
       ],
       or: [
         'for',
@@ -962,7 +972,7 @@
         'storms',
         'short',
         'scorch',
-        'according',
+        'according'
       ],
       tch: [
         'itch',
@@ -975,199 +985,196 @@
         'patchy',
         'sketch',
         'witches',
-        'matchboxes',
-      ],
+        'matchboxes'
+      ]
     }
 
-    var index=0
-    var words=[]
-    var options={
+    var index = 0
+    var words = []
+    var options = {
       done: "That's all the words!",
       sound: 'Sound: %s',
       pack: 'Spelling set %s',
-      select: 'Select a list',
+      select: 'Select a spelling set'
     }
-    var success=null
+    var success = null
 
-    function getWordList(syl,ln) {
+    function getWordList (syl) {
       clearList()
       clearSpellResult()
 
-      words=dictionary[syl]
-      index=0
+      words = dictionary[syl]
+      index = 0
       loadWord()
       setViewMode()
       $('.sp__pick').removeClass('sp__selected')
-      $('.sp__pick--'+syl).addClass('sp__selected')
+      $('.sp__pick--' + syl).addClass('sp__selected')
     }
 
-    function loadWord() {
+    function loadWord () {
       toggleChallenge()
       $('.sp__word').text(getCurrentWord())
     }
-    function toggleChallenge() {
-      if(index===words.length-1) {
+    function toggleChallenge () {
+      if (index === words.length - 1) {
         $('.sp__word').addClass('sp__challenge')
       } else {
         $('.sp__word').removeClass('sp__challenge')
       }
     }
-    function getCurrentWord() {
+    function getCurrentWord () {
       return words[index]
     }
-    function getSpellResult() {
+    function getSpellResult () {
       return success
     }
-    function setSpellSuccesss() {
-      success=true
+    function setSpellSuccesss () {
+      success = true
     }
-    function setSpellError() {
-      success=false
-    }
-
-    function clearSpellResult() {
-      success=null
+    function setSpellError () {
+      success = false
     }
 
-    function getInput() {
+    function clearSpellResult () {
+      success = null
+    }
+
+    function getInput () {
       return $('.sp__input').val()
     }
-    function isSame() {
-      return getInput().toLowerCase()===getCurrentWord().toLowerCase()
+    function isSame () {
+      return getInput().toLowerCase() === getCurrentWord().toLowerCase()
     }
-    function markInvalid() {
+    function markInvalid () {
       setSpellError()
       $('.sp__input').removeClass('sp__input--valid')
       $('.sp__input').addClass('sp__input--invalid')
     }
-    function markValid() {
+    function markValid () {
       setSpellSuccesss()
       $('.sp__input').removeClass('sp__input--invalid')
       $('.sp__input').addClass('sp__input--valid')
     }
-    function clearInput() {
+    function clearInput () {
       clearSpellResult()
       $('.sp__input').removeClass('sp__input--invalid')
       $('.sp__input').removeClass('sp__input--valid')
       $('.sp__input').val('')
     }
-    function setStartMode() {
+    function setStartMode () {
       $('.sp__mode--view').hide()
       $('.sp__mode--input').hide()
+      $('.sp__mode--active').hide()
     }
-    function setInputMode() {
+    function setInputMode () {
       $('.sp__mode--view').hide()
       $('.sp__mode--input').fadeIn()
     }
-    function setViewMode() {
+    function setViewMode () {
+      $('.sp__mode--active').show()
       $('.sp__mode--input').hide()
       $('.sp__mode--view').fadeIn()
     }
-    function showActions() {
+    function showActions () {
       $('.sp__check').hide()
       $('.sp__actions').fadeIn()
     }
-    function showCheck() {
+    function showCheck () {
       $('.sp__actions').hide()
       $('.sp__check').fadeIn()
     }
-    function clearList() {
+    function clearList () {
       $('.sp__list').text('')
     }
-    function addToList() {
-      var s=
-        getSpellResult()===true? 'sp__result--valid':'sp__result--invalid'
+    function addToList () {
+      var s =
+        getSpellResult() === true ? 'sp__result--valid' : 'sp__result--invalid'
       $('.sp__list').html(
-        $('.sp__list').html()+
-        '<div class="sp__result '+
-        s+
-        '">'+
-        getCurrentWord()+
-        '</div>'
+        $('.sp__list').html() +
+          '<div class="sp__result ' +
+          s +
+          '">' +
+          getCurrentWord() +
+          '</div>'
       )
     }
-    function setListPicker() {
-      $('.sp__pick__default').text(options.select)
-      $('.sp__pick').click(function() {
-        $('.sp__pick__list',this).toggle()
-      })
-      $('.sp__pick__list').mouseleave(function() {
-        $(this).hide()
-      })
-      var list_tpl='<div class="sp__pick__list--content"></div>'
-      var sublist_tpl='<div class="sp__pick__list--lists"></div>'
-      var item_tpl='<div class="sp__pick__item sp__pick__item--%s">%s</div>'
-      var hdr_tpl='<div class="sp__pick__list--header"></div>'
-      var sec_tpl='<div class="sp__pick__list--list"></div>'
-      var parent=$('.sp__pick__list')
-      lists.forEach(function(l,index) {
-        var hdr=$(hdr_tpl).text(options.pack.replace('%s',index+1))
+    function setListPicker () {
+      var $dropdown = $('.sp__pick')
 
-        var content=$(list_tpl).append(hdr)
-        var section_container=$(sublist_tpl)
-        var sections=[l.slice(0,10),l.slice(10)]
+      $('option', $dropdown).remove()
 
-        sections.forEach(function(section,i) {
-          var sec=$(sec_tpl)
-          section.forEach(function(s,i) {
-            var title=normalizeTitle(s)
-            var c=$(item_tpl.replace(/%s/g,title))
-              .click(function(e) {
-                e.preventDefault()
-                getWordList(s,index)
-                setListTitle(title)
-              })
-              .appendTo(sec)
-          })
-          sec.appendTo(section_container)
-        })
-        section_container.appendTo(content)
-        content.appendTo(parent)
+      if (!set) return
+
+      $dropdown
+        .attr('disabled', false)
+        .append($('<option />').text(options.pack.replace('%s', set)))
+
+      var words = lists[set - 1]
+      words.forEach(function (w) {
+        $dropdown.append(
+          $('<option />')
+            .val(w)
+            .text(normalizeTitle(w))
+        )
+      })
+      $dropdown.on('change', function () {
+        getWordList(this.value)
+        setListTitle(normalizeTitle(this.value))
       })
     }
-    function normalizeTitle(t) {
-      if(t.match('_')) {
-        t=t.replace('_',' (')+')'
+
+    function normalizeTitle (t) {
+      if (t.match('_')) {
+        t = t.replace('_', ' (') + ')'
       }
       return t
     }
-    function setListTitle(t) {
-      $('.sp__picked').text(options.sound.replace('%s',t))
+    function setListTitle (t) {
+      $('.sp__picked').text(options.sound.replace('%s', t))
     }
-    function setSpeechFn() {
-      $('.sp__speech').click(function(e) {
+
+    function setSetFn () {
+      $('.sp__button__set').click(function (e) {
         e.preventDefault()
-        var utterThis=new SpeechSynthesisUtterance(getCurrentWord())
+        set = parseInt($(this).attr('data-set'))
+        setListPicker()
+        setStartMode()
+      })
+    }
+    function setSpeechFn () {
+      $('.sp__speech').click(function (e) {
+        e.preventDefault()
+        var utterThis = new SpeechSynthesisUtterance(getCurrentWord())
         synth.speak(utterThis)
       })
     }
-    function setCoverFn() {
-      $('.sp__cover').click(function(e) {
+    function setCoverFn () {
+      $('.sp__cover').click(function (e) {
         e.preventDefault()
         setInputMode()
       })
     }
-    function setLookFn() {
-      $('.sp__look').click(function(e) {
+    function setLookFn () {
+      $('.sp__look').click(function (e) {
         e.preventDefault()
         setViewMode()
       })
     }
-    function setTryAgainFn() {
-      $('.sp__retry').click(function(e) {
+    function setTryAgainFn () {
+      $('.sp__retry').click(function (e) {
         e.preventDefault()
         clearInput()
         setInputMode()
         showCheck()
       })
     }
-    function setNextFn() {
-      $('.sp__next').click(function(e) {
+    function setNextFn () {
+      $('.sp__next').click(function (e) {
         e.preventDefault()
 
         addToList()
-        index=index+1
-        if(index===words.length) {
+        index = index + 1
+        if (index === words.length) {
           toggleAllDone()
         } else {
           loadWord()
@@ -1177,42 +1184,46 @@
         }
       })
     }
-    function setCheckFn() {
-      $('.sp__check').click(function(e) {
+
+    function setCheckFn () {
+      $('.sp__check').click(function (e) {
         e.preventDefault()
         showActions()
-        if(isSame()) {
+        if (isSame()) {
           markValid()
         } else markInvalid()
       })
     }
-    function toggleAllDone() {
+    function toggleAllDone () {
       $('.sp__actions').toggle()
-      $('.sp__finished').html(options.done).toggle()
+      $('.sp__finished')
+        .html(options.done)
+        .toggle()
     }
 
-    function showSpeech() {
+    function showSpeech () {
       $('.sp__row--say').show()
     }
 
-    function loadClickFns() {
+    function loadClickFns () {
       setSpeechFn()
       setCoverFn()
       setLookFn()
+      setSetFn()
       setCheckFn()
       setTryAgainFn()
       setNextFn()
       setListPicker()
     }
 
-    if('speechSynthesis' in window) {
-      var synth=window.speechSynthesis
+    if ('speechSynthesis' in window) {
+      var synth = window.speechSynthesis
     }
-    $.fn.initSpeller=function(config,cb) {
-      for(var attr in config) {
-        options[attr]=config[attr]
+    $.fn.initSpeller = function (config, cb) {
+      for (var attr in config) {
+        options[attr] = config[attr]
       }
-      if(synth) showSpeech()
+      if (synth) showSpeech()
 
       loadClickFns()
       setStartMode()
@@ -1220,7 +1231,7 @@
   })(jQuery)
 </script>
 <script>
-  $(function() {
-    $().initSpeller({},function() {})
+  $(function () {
+    $().initSpeller({}, function () {})
   })
 </script>
